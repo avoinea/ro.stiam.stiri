@@ -1,7 +1,7 @@
 {
-  "name": "ro.stiam.stiri",
-  "version": "1.0.0",
-  "description": "ro.stiam.stiri: An Ionic project",
+  "name": "stiam.ro",
+  "version": "2.4",
+  "description": "Stiri si atat",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",

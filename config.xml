@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.rostiamstiri148319" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>ro.stiam.stiri</name>
+<widget id="ro.stiam.stiri" version="2.4" android-versionCode="12" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>stiam.ro</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Stiri si atat
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="contact@stiam.ro" href="http://stiam.ro">
+      stiam.ro
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -13,6 +13,8 @@
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="BackupWebStorage" value="none"/>
+  <preference name="splashscreen" value="splash" />
+  <preference name="splashScreenDelay" value="10000" />
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
