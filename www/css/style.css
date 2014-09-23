@@ -8,3 +8,80 @@
   border-radius: 4px;
   margin-right: 1em;
 }
+
+.image-circle {
+  border-radius: 50%;
+  border: 5px solid #fff;
+  width: 58px;
+  height: 58px;
+  float: left;
+  margin-right: 1em;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+p.discret {
+    color: #999;
+    font-size: 12px;
+}
+
+.item h2 {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.article-listing {
+  background-color: #dcdee3;
+}
+
+.article-listing-wrapper {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.article-thumb-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.article-thumb {
+    width: 150%;
+    margin-left: -25%;
+}
+
+.article-source {
+    padding: 3px 16px;
+}
+
+.article-actions {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+
+.article-actions .tab-item {
+    border-right: 1px solid #dcdee3;
+}
+
+.article-actions .tab-item:last-of-type {
+    border-right: none;
+}
+
+.item-body h3 {
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.72rem;
+    font-weight: normal;
+    text-align: right;
+}
+
+.item-body .documentDescription {
+  font-weight: normal;
+  text-align: justify;
+}
