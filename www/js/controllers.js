@@ -1,0 +1,39 @@
+angular.module('starter.controllers', [])
+
+.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+  // Form data for the settings modal
+  $scope.settingsData = {
+    fontTitle: 100,
+    fontDescription: 100,
+    fontArticle: 100,
+    theme: 'balanced',
+    showImages: true,
+    showImagesArticle: true
+  };
+
+  // Create the login modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/settings.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  // Triggered in the login modal to close it
+  $scope.closeSettings = function() {
+    $scope.modal.hide();
+  };
+
+  // Open the login modal
+  $scope.showSettings = function() {
+    $scope.modal.show();
+  };
+
+  $scope.saveSettings = function() {
+    console.log('Settings saved', $scope.settingsData);
+    $scope.closeSettings();
+  };
+})
+
+.controller('NavCtrl', function($scope, $ionicNavBarDelegate) {
+
+});

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic','starter.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,4 +22,29 @@ angular.module('starter', ['ionic'])
       navigator.splashscreen.hide();
     }
   });
+})
+
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+
+    .state('app', {
+      url: "/app",
+      abstract: true,
+      templateUrl: "templates/menu.html",
+      controller: 'AppCtrl'
+    })
+
+    .state('app.listing', {
+      url: "/listing",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/listing.html"
+        }
+      }
+    });
+
+
+  $urlRouterProvider.otherwise('/app/listing');
 });

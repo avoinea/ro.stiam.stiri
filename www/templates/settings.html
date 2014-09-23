@@ -1,0 +1,141 @@
+<div class="modal">
+  <ion-header-bar class="balanced-bg">
+    <h1 class="title light">Setări</h1>
+    <div class="buttons">
+      <button class="button button-clear icon ion-ios7-checkmark-empty button-light" ng-click="saveSettings()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="saveSettings()">
+      <ul class="list">
+       <li class="item item-toggle">
+         Imagini in listă
+         <label class="toggle toggle-balanced">
+           <input type="checkbox" ng-model="settingsData.showImages">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+         </label>
+       </li>
+       <li class="item item-toggle">
+         Imagini in articol
+         <label class="toggle toggle-balanced">
+           <input type="checkbox" ng-model="settingsData.showImagesArticle">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+         </label>
+       </li>
+       <li>
+         <div class="item item-divider">Font titlu</div>
+         <div class="item range">
+           <input type="range" name="volume" min="50" max="200" value="100" ng-model="settingsData.fontTitle">
+           <span style="font-size: {{ settingsData.fontTitle }}%">{{ settingsData.fontTitle }}%</span>
+         </div>
+       </li>
+       <li>
+         <div class="item item-divider">Font descriere</div>
+         <div class="item range">
+           <input type="range" name="volume" min="50" max="200" value="100" ng-model="settingsData.fontDescription">
+           <span style="font-size: {{ settingsData.fontDescription }}%">{{ settingsData.fontDescription }}%</span>
+         </div>
+       </li>
+       <li>
+         <div class="item item-divider">Font conţinut</div>
+         <div class="item range">
+           <input type="range" name="volume" min="50" max="200" value="100" ng-model="settingsData.fontArticle">
+           <span style="font-size: {{ settingsData.fontArticle }}%">{{settingsData.fontArticle }}%</span>
+         </div>
+       </li>
+       <li>
+           <div class="item item-divider">Temă</div>
+
+           <label class="item item-radio">
+             <input type="radio" name="theme" ng-model="settingsData.theme" value="balanced" checked="{{ settingsData.theme === 'balanced' ? 'checked': false }}">
+             <div class="item-content">
+               <span class="color-demo balanced-bg balanced-border"></span>
+               Verde
+             </div>
+             <i class="radio-icon ion-checkmark"></i>
+           </label>
+
+           <label class="item item-radio">
+             <input type="radio" name="theme" ng-model="settingsData.theme" value="positive" checked="{{ settingsData.theme === 'positive' ? 'checked': false }}">
+             <div class="item-content">
+               <span class="color-demo positive-bg positive-border"></span>
+               Albastră
+             </div>
+             <i class="radio-icon ion-checkmark"></i>
+           </label>
+
+           <label class="item item-radio">
+             <input type="radio" name="theme" ng-model="settingsData.theme" value="dark" checked="{{ settingsData.theme === 'dark' ? 'checked': false }}">
+             <div class="item-content">
+               <span class="color-demo dark-bg dark-border"></span>
+               Neagră
+             </div>
+             <i class="radio-icon ion-checkmark"></i>
+           </label>
+
+           <label class="item item-radio">
+             <input type="radio" name="theme" ng-model="settingsData.theme" value="light" checked="{{ settingsData.theme === 'light' ? 'checked': false }}">
+             <div class="item-content">
+               <span class="color-demo light-bg light-border"></span>
+               Albă
+             </div>
+             <i class="radio-icon ion-checkmark"></i>
+           </label>
+
+           <label class="item item-radio">
+             <input type="radio" name="theme" ng-model="settingsData.theme" value="stable" checked="{{ settingsData.theme === 'stable' ? 'checked': false }}">
+             <div class="item-content">
+               <span class="color-demo stable-bg stable-border"></span>
+               Gri
+             </div>
+             <i class="radio-icon ion-checkmark"></i>
+           </label>
+
+           <label class="item item-radio">
+             <input type="radio" name="theme" ng-model="settingsData.theme" value="energized" checked="{{ settingsData.theme === 'energized' ? 'checked': false }}">
+             <div class="item-content">
+               <span class="color-demo energized-bg energized-border"></span>
+               Portocalie
+             </div>
+             <i class="radio-icon ion-checkmark"></i>
+           </label>
+
+           <label class="item item-radio">
+             <input type="radio" name="theme" ng-model="settingsData.theme" value="calm" checked="{{ settingsData.theme === 'calm' ? 'checked': false }}">
+             <div class="item-content">
+               <span class="color-demo calm-bg calm-border"></span>
+               Turcoaz
+               <sup class="assertive">PRO</sup>
+             </div>
+             <i class="radio-icon ion-checkmark"></i>
+           </label>
+
+           <label class="item item-radio">
+             <input type="radio" name="theme" ng-model="settingsData.theme" value="royal" checked="{{ settingsData.theme === 'royal' ? 'checked': false }}">
+             <div class="item-content">
+               <span class="color-demo royal-bg royal-border"></span>
+               Mov
+               <sup class="assertive">PRO</sup>
+             </div>
+             <i class="radio-icon ion-checkmark"></i>
+           </label>
+
+           <label class="item item-radio">
+             <input type="radio" name="theme" ng-model="settingsData.theme" value="assertive" checked="{{ settingsData.theme === 'assertive' ? 'checked': false }}">
+             <div class="item-content">
+               <span class="color-demo assertive-bg assertive-border"></span>
+               Roşie
+               <sup class="assertive">PRO</sup>
+             </div>
+             <i class="radio-icon ion-checkmark"></i>
+           </label>
+
+       </li>
+      </div>
+    </form>
+  </ion-content>
+</div>
