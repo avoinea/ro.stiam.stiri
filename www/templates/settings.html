@@ -50,86 +50,14 @@
        <li>
            <div class="item item-divider">Temă</div>
 
-           <label class="item item-radio">
-             <input type="radio" name="theme" ng-model="settingsData.theme" value="balanced" checked="{{ settingsData.theme === 'balanced' ? 'checked': false }}">
+           <label class="item item-radio" ng-repeat="theme in themes">
+             <input type="radio" name="theme" ng-model="settingsData.theme"
+                    value="{{theme.name}}"
+                    ng-checked="{{ settingsData.theme === theme.name }}">
              <div class="item-content">
-               <span class="color-demo balanced-bg balanced-border"></span>
-               Verde
-             </div>
-             <i class="radio-icon ion-checkmark"></i>
-           </label>
-
-           <label class="item item-radio">
-             <input type="radio" name="theme" ng-model="settingsData.theme" value="positive" checked="{{ settingsData.theme === 'positive' ? 'checked': false }}">
-             <div class="item-content">
-               <span class="color-demo positive-bg positive-border"></span>
-               Albastră
-             </div>
-             <i class="radio-icon ion-checkmark"></i>
-           </label>
-
-           <label class="item item-radio">
-             <input type="radio" name="theme" ng-model="settingsData.theme" value="dark" checked="{{ settingsData.theme === 'dark' ? 'checked': false }}">
-             <div class="item-content">
-               <span class="color-demo dark-bg dark-border"></span>
-               Neagră
-             </div>
-             <i class="radio-icon ion-checkmark"></i>
-           </label>
-
-           <label class="item item-radio">
-             <input type="radio" name="theme" ng-model="settingsData.theme" value="light" checked="{{ settingsData.theme === 'light' ? 'checked': false }}">
-             <div class="item-content">
-               <span class="color-demo light-bg light-border"></span>
-               Albă
-             </div>
-             <i class="radio-icon ion-checkmark"></i>
-           </label>
-
-           <label class="item item-radio">
-             <input type="radio" name="theme" ng-model="settingsData.theme" value="stable" checked="{{ settingsData.theme === 'stable' ? 'checked': false }}">
-             <div class="item-content">
-               <span class="color-demo stable-bg stable-border"></span>
-               Gri
-             </div>
-             <i class="radio-icon ion-checkmark"></i>
-           </label>
-
-           <label class="item item-radio">
-             <input type="radio" name="theme" ng-model="settingsData.theme" value="energized" checked="{{ settingsData.theme === 'energized' ? 'checked': false }}">
-             <div class="item-content">
-               <span class="color-demo energized-bg energized-border"></span>
-               Portocalie
-             </div>
-             <i class="radio-icon ion-checkmark"></i>
-           </label>
-
-           <label class="item item-radio">
-             <input type="radio" name="theme" ng-model="settingsData.theme" value="calm" checked="{{ settingsData.theme === 'calm' ? 'checked': false }}">
-             <div class="item-content">
-               <span class="color-demo calm-bg calm-border"></span>
-               Turcoaz
-               <sup class="assertive">PRO</sup>
-             </div>
-             <i class="radio-icon ion-checkmark"></i>
-           </label>
-
-           <label class="item item-radio">
-             <input type="radio" name="theme" ng-model="settingsData.theme" value="royal" checked="{{ settingsData.theme === 'royal' ? 'checked': false }}">
-             <div class="item-content">
-               <span class="color-demo royal-bg royal-border"></span>
-               Mov
-               <sup class="assertive">PRO</sup>
-             </div>
-             <i class="radio-icon ion-checkmark"></i>
-           </label>
-
-           <label class="item item-radio">
-             <input type="radio" name="theme" ng-model="settingsData.theme" value="assertive" checked="{{ settingsData.theme === 'assertive' ? 'checked': false }}">
-             <div class="item-content">
-               <span class="color-demo assertive-bg assertive-border"></span>
-               Roşie
-               <sup class="assertive">PRO</sup>
+               <span class="color-demo {{theme.name}}-bg {{theme.name}}-border"></span>
+               {{theme.title}}
+               <sup class="assertive" ng-if="theme.pro">PRO</sup>
              </div>
              <i class="radio-icon ion-checkmark"></i>
            </label>

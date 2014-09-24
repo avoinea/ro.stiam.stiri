@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('ro.stiam.stiri.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the settings modal
@@ -10,6 +10,18 @@ angular.module('starter.controllers', [])
     showImages: true,
     showImagesArticle: true
   };
+
+  $scope.themes = [
+      {name: "balanced", title: "Verde", pro: false},
+      {name: "positive", title: "Albastră", pro: false},
+      {name: "dark", title: "Neagră", pro: false},
+      {name: "light", title: "Albă", pro: false},
+      {name: "stable", title: "Gri", pro: false},
+      {name: "energized", title: "Portocalie", pro: false},
+      {name: "calm", title: "Turcoaz", pro: true},
+      {name: "royal", title: "Mov", pro: true},
+      {name: "assertive", title: "Roşie", pro: true}
+  ];
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/settings.html', {
