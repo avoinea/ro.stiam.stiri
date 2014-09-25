@@ -1,5 +1,5 @@
 <div class="modal">
-  <ion-header-bar class="balanced-bg">
+  <ion-header-bar class="bar bar-header bar-balanced">
     <h1 class="title light">Setări</h1>
     <div class="buttons">
       <button class="button button-clear icon ion-ios7-checkmark-empty button-light" ng-click="saveSettings()"></button>
@@ -8,52 +8,61 @@
   <ion-content>
     <form ng-submit="saveSettings()">
       <ul class="list">
+       <li class="item item-divider">
+           Layout listare
+       </li>
        <li class="item item-toggle">
-         Imagini in listă
-         <label class="toggle toggle-balanced">
-           <input type="checkbox" ng-model="settingsData.showImages">
+         Listare tip card
+         <label class="toggle toggle-{{settingsDataUnsaved.theme}}">
+           <input type="checkbox" ng-model="settingsDataUnsaved.showCards">
            <div class="track">
              <div class="handle"></div>
            </div>
          </label>
        </li>
        <li class="item item-toggle">
-         Imagini in articol
-         <label class="toggle toggle-balanced">
-           <input type="checkbox" ng-model="settingsData.showImagesArticle">
+         Afişează sursa şi data
+         <label class="toggle toggle-{{settingsDataUnsaved.theme}}">
+           <input type="checkbox" ng-model="settingsDataUnsaved.showSource">
            <div class="track">
              <div class="handle"></div>
            </div>
          </label>
        </li>
-       <li>
-         <div class="item item-divider">Font titlu</div>
-         <div class="item range">
-           <input type="range" name="volume" min="50" max="200" value="100" ng-model="settingsData.fontTitle">
-           <span style="font-size: {{ settingsData.fontTitle }}%">{{ settingsData.fontTitle }}%</span>
-         </div>
+       <li class="item item-toggle">
+         Afişează imagine
+         <label class="toggle toggle-{{settingsDataUnsaved.theme}}">
+           <input type="checkbox" ng-model="settingsDataUnsaved.showImages">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+         </label>
        </li>
-       <li>
-         <div class="item item-divider">Font descriere</div>
-         <div class="item range">
-           <input type="range" name="volume" min="50" max="200" value="100" ng-model="settingsData.fontDescription">
-           <span style="font-size: {{ settingsData.fontDescription }}%">{{ settingsData.fontDescription }}%</span>
-         </div>
+       <li class="item item-toggle">
+         Afişează descriere
+         <label class="toggle toggle-{{settingsDataUnsaved.theme}}">
+           <input type="checkbox" ng-model="settingsDataUnsaved.showDescription">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+         </label>
        </li>
-       <li>
-         <div class="item item-divider">Font conţinut</div>
-         <div class="item range">
-           <input type="range" name="volume" min="50" max="200" value="100" ng-model="settingsData.fontArticle">
-           <span style="font-size: {{ settingsData.fontArticle }}%">{{settingsData.fontArticle }}%</span>
-         </div>
+       <li class="item item-toggle">
+         Afişează butoane
+         <label class="toggle toggle-{{settingsDataUnsaved.theme}}">
+           <input type="checkbox" ng-model="settingsDataUnsaved.showButtons">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+         </label>
        </li>
        <li>
            <div class="item item-divider">Temă</div>
 
            <label class="item item-radio" ng-repeat="theme in themes">
-             <input type="radio" name="theme" ng-model="settingsData.theme"
+             <input type="radio" name="theme" ng-model="settingsDataUnsaved.theme"
                     value="{{theme.name}}"
-                    ng-checked="{{ settingsData.theme === theme.name }}">
+                    ng-checked="{{ settingsDataUnsaved.theme === theme.name }}">
              <div class="item-content">
                <span class="color-demo {{theme.name}}-bg {{theme.name}}-border"></span>
                {{theme.title}}
@@ -62,6 +71,27 @@
              <i class="radio-icon ion-checkmark"></i>
            </label>
 
+       </li>
+       <li>
+         <div class="item item-divider">Font titlu</div>
+         <div class="item range">
+           <input type="range" name="volume" min="50" max="200" value="100" ng-model="settingsDataUnsaved.fontTitle">
+           <span style="font-size: {{ settingsDataUnsaved.fontTitle }}%">{{ settingsDataUnsaved.fontTitle }}%</span>
+         </div>
+       </li>
+       <li>
+         <div class="item item-divider">Font descriere</div>
+         <div class="item range">
+           <input type="range" name="volume" min="50" max="200" value="100" ng-model="settingsDataUnsaved.fontDescription">
+           <span style="font-size: {{ settingsDataUnsaved.fontDescription }}%">{{ settingsDataUnsaved.fontDescription }}%</span>
+         </div>
+       </li>
+       <li>
+         <div class="item item-divider">Font conţinut</div>
+         <div class="item range">
+           <input type="range" name="volume" min="50" max="200" value="100" ng-model="settingsDataUnsaved.fontArticle">
+           <span style="font-size: {{ settingsDataUnsaved.fontArticle }}%">{{settingsDataUnsaved.fontArticle }}%</span>
+         </div>
        </li>
       </div>
     </form>

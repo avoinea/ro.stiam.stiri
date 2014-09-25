@@ -1,20 +1,20 @@
-<div>
-  <div class="item article-source">
+<div class="{{settingsData.showCards | roCards }}">
+  <div class="item article-source" ng-if="settingsData.showSource">
     <div style="background-image: url('{{ article.url | roIconPath }}')" class="image-circle"></div>
     <h2>{{ article.source | roTextLower }}</h2>
     <p class="discret">{{ article.date | roDate }}</p>
   </div>
 
-  <div class="item article-thumb-container" ng-if="article.thumbnail">
+  <div class="item article-thumb-container" ng-if="article.thumbnail && settingsData.showImages">
     <img class="article-thumb" src="{{ article.thumbnail }}">
   </div>
 
   <div class="item item-body">
-  <h3>{{ article.title }}</h3>
-  <p class="documentDescription">{{ article.description }}</p>
+  <h3 style="font-size: {{settingsData.fontTitle}}%">{{ article.title }}</h3>
+  <p class="documentDescription" style="font-size: {{settingsData.fontDescription}}%" ng-if="settingsData.showDescription">{{ article.description }}</p>
   </div>
 
-  <div class="item tabs tabs-secondary tabs-icon-left item-stable article-actions">
+  <div class="item tabs tabs-secondary tabs-icon-left item-stable article-actions" ng-if="settingsData.showButtons">
     <a class="tab-item" href="#">
       <i class="icon ion-bookmark"></i>
       Salveaza
