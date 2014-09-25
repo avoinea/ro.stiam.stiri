@@ -5,7 +5,15 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-angular.module('ro.stiam.stiri', ['ionic','ro.stiam.stiri.controllers'])
+angular.module(
+  'ro.stiam.stiri', [
+    'ionic',
+    'ro.stiam.stiri.controllers',
+    'ro.stiam.stiri.services',
+    'ro.stiam.stiri.directives',
+    'ro.stiam.stiri.filters'
+  ]
+)
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,7 +31,6 @@ angular.module('ro.stiam.stiri', ['ionic','ro.stiam.stiri.controllers'])
     }
   });
 })
-
 
 .config(function($stateProvider, $urlRouterProvider) {
 

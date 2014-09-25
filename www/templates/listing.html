@@ -7,111 +7,22 @@
     <a class="button button-icon icon ion-ios7-more" ng-click="showSettings()"></a>
   </ion-nav-buttons>
 
-  <ion-content class="has-header article-listing">
-    <div class="article-listing-wrapper">
+  <ion-content class="has-header article-listing" ng-controller="ListingCtrl">
+    <div class="list article-listing-wrapper">
 
-    <div class="card">
-
-      <div class="item article-source">
-        <div style="background-image: url('http://stiam.ro/revista-presei/cinemagia.ro/image_crop')" class="image-circle"></div>
-        <h2>cinemagia.ro</h2>
-        <p class="discret">ieri</p>
-      </div>
-
-      <div class="item article-thumb-container">
-          <img class="article-thumb" src="http://stiam.ro/revista-presei/eva.ro/monden/2014-09-19/frumusete-dr.-oz.-cum-sa/image_preview">
-      </div>
-
-      <div class="item item-body">
-        <h3>Prezervativele disponibile în Uganda, prea mici pentru mulţi bărbaţi din această ţară</h3>
-        <p class="documentDescription">Prezervativele disponibile pe piaţă sunt prea mici pentru organele sexuale ale multor bărbaţi din Uganda, au declarat câţiva deputaţi din...</p>
-      </div>
-
-        <div class="item tabs tabs-secondary tabs-icon-left item-stable article-actions">
-          <a class="tab-item" href="#">
-            <i class="icon ion-bookmark"></i>
-            Salveaza
-            <sup class="assertive">PRO</sup>
-          </a>
-          <a class="tab-item" href="#">
-            <i class="icon ion-share"></i>
-            Distribuie
-          </a>
-          <a class="tab-item" href="#">
-            <i class="icon ion-forward"></i>
-            Detalii
-          </a>
-        </div>
-
-    </div>
-
-    <div class="card">
-
-      <div class="item article-source">
-        <div style="background-image: url('http://stiam.ro/revista-presei/money.ro/image_crop')" class="image-circle"></div>
-        <h2>money.ro</h2>
-        <p class="discret">ieri</p>
-      </div>
-
-      <div class="item item-body">
-        <h3>Frumuseţe Dr. Oz. Cum să-ţi usuci părul mai repede şi să-l protejezi de căldură</h3>
-        <p class="documentDescription">Rockerul american Alice Cooper a deschis săptămâna trecută un magazin de haine în Phoenix, Arizona, unde oferă fanilor posibilitatea de...</p>
-      </div>
-
-        <div class="item tabs tabs-secondary tabs-icon-left item-stable article-actions">
-          <a class="tab-item" href="#">
-            <i class="icon ion-bookmark"></i>
-            Salveaza
-            <sup class="assertive">PRO</sup>
-          </a>
-          <a class="tab-item" href="#">
-            <i class="icon ion-share"></i>
-            Distribuie
-          </a>
-          <a class="tab-item" href="#">
-            <i class="icon ion-forward"></i>
-            Detalii
-          </a>
-        </div>
-
-    </div>
-
-    <div class="card">
-
-      <div class="item article-source">
-        <div style="background-image: url('http://stiam.ro/revista-presei/eva.ro/image_crop')" class="image-circle"></div>
-        <h2>eva.ro</h2>
-        <p class="discret">ieri</p>
-      </div>
-
-      <div class="item article-thumb-container">
-          <img class="article-thumb" src="http://stiam.ro/revista-presei/mediafax.ro/monden/2014-09-23/scandalul-fotografiilor-nud-ale-vedetelor/image_preview">
-      </div>
-
-      <div class="item item-body">
-        <h3>Frumuseţe Dr. Oz. Cum să-ţi usuci părul mai repede şi să-l protejezi de căldură</h3>
-        <p class="documentDescription">Rockerul american Alice Cooper a deschis săptămâna trecută un magazin de haine în Phoenix, Arizona, unde oferă fanilor posibilitatea de...</p>
-      </div>
-
-        <div class="item tabs tabs-secondary tabs-icon-left item-stable article-actions">
-          <a class="tab-item" href="#">
-            <i class="icon ion-bookmark"></i>
-            Salveaza
-            <sup class="assertive">PRO</sup>
-          </a>
-          <a class="tab-item" href="#">
-            <i class="icon ion-share"></i>
-            Distribuie
-          </a>
-          <a class="tab-item" href="#">
-            <i class="icon ion-forward"></i>
-            Detalii
-          </a>
-        </div>
-
+    <div class="card"
+        collection-repeat="article in articles"
+        collection-item-width="'100%'"
+        collection-item-height="getItemHeight(article)"
+        ng-style="{height: getItemHeight(item, $index), left: 0, right: 0}">
+      <article-brick></article-brick>
     </div>
 
     </div>
+    <ion-infinite-scroll
+            icon="ion-loading-c"
+            on-infinite="loadMore()">
+    </ion-infinite-scroll>
 
   </ion-content>
 </ion-view>

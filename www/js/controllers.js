@@ -46,6 +46,23 @@ angular.module('ro.stiam.stiri.controllers', [])
   };
 })
 
-.controller('NavCtrl', function($scope, $ionicNavBarDelegate) {
+.controller('MenuCtrl', function($scope, $ionicNavBarDelegate) {
+
+})
+
+.controller('ListingCtrl', function($scope, Query) {
+  $scope.articles = Query.first();
+
+  $scope.getItemHeight = function(item) {
+    if(item && item.thumbnail){
+      return 700;
+    }else{
+      return 360;
+    }
+  };
+
+  $scope.loadMore = function(){
+    return Query.next();
+  }
 
 });
