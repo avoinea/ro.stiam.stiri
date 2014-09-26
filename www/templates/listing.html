@@ -9,9 +9,21 @@
   </ion-nav-buttons>
 
   <ion-content class="has-header article-listing" ng-controller="ListingCtrl">
+
+    <ion-refresher
+      pulling-text="Trage pentru a actualiza ştirile"
+      on-refresh="doRefresh()">
+    </ion-refresher>
+
     <div class="list article-listing-wrapper">
       <article-brick ng-repeat="article in articles"></article-brick>
     </div>
+
+    <ion-infinite-scroll
+      ng-if="moreDataCanBeLoaded()"
+      on-infinite="loadMore()"
+      distance="10%">
+    </ion-infinite-scroll>
 
   </ion-content>
 </ion-view>

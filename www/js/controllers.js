@@ -69,20 +69,32 @@ angular.module('ro.stiam.stiri.controllers', [])
 })
 
 .controller('ListingCtrl', function($scope, Query) {
-  Query.first().then(function(resp){
-      $scope.articles = resp.items;
-  });
+  $scope.articles = [];
+  $scope.properties = {};
 
-  $scope.getItemHeight = function(item) {
-    if(item && item.thumbnail){
-      return 800;
-    }else{
-      return 400;
-    }
-  };
+  $scope.doRefresh = function() {
+    Query.refresh().then(function(resp){
+      $scope.articles = resp.items;
+      $scope.properties = resp.properties;
+      $scope.$broadcast('scroll.refreshComplete');
+    });
+  }
 
   $scope.loadMore = function(){
-    return Query.next();
+    return Query.next().then(function(resp){
+      $scope.articles = $scope.articles.concat(resp.items);
+      $scope.properties = resp.properties;
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+    });
+  }
+
+  $scope.moreDataCanBeLoaded = function(){
+    var first = $scope.properties.first || 0;
+    var last = $scope.properties.last || 20;
+    if(first >= last){
+      return false;
+    }
+    return true;
   }
 
 });

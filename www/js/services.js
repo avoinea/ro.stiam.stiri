@@ -42,12 +42,32 @@ angular.module('ro.stiam.stiri.services', ['ngResource'])
      }
    });
 
+   var query = {
+     b_start: -20
+   };
+
    return {
-     first: function (){
+
+     next: function(){
        var q = $q.defer();
 
-       queryResource.get({
-           }, function(resp){
+       query.b_start += 20;
+       queryResource.get(query,
+         function(resp){
+           q.resolve(resp);
+         }, function(httpResponse){
+           q.reject(httpResponse);
+         }
+       );
+       return q.promise;
+     },
+
+     refresh: function(){
+       var q = $q.defer();
+
+       query.b_start = 0;
+       queryResource.get(query,
+           function(resp){
                q.resolve(resp);
            }, function(httpResponse){
                q.reject(httpResponse);
@@ -55,9 +75,6 @@ angular.module('ro.stiam.stiri.services', ['ngResource'])
        );
 
        return q.promise;
-     },
-     next: function(){
-       return {}
      }
    };
 

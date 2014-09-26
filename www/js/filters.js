@@ -10,17 +10,20 @@ angular.module('ro.stiam.stiri.filters', [])
   };
 })
 
+
 .filter('roTextLower', function() {
   return function(input) {
     return input.toLowerCase();
   }
 })
 
+
 .filter('roCards', function() {
   return function(input) {
     return input ? 'card' : '';
   }
 })
+
 
 .filter('roDate', function() {
   return function(date) {

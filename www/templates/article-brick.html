@@ -5,11 +5,9 @@
     <p class="discret">{{ article.date | roDate }}</p>
   </div>
 
-  <div class="item article-thumb-container" ng-if="article.thumbnail && settingsData.showImages">
-    <img class="article-thumb" src="{{ article.thumbnail }}">
-  </div>
+  <img class="article-thumb" ng-src="{{ article.thumbnail }}" ng-if="article.thumbnail && settingsData.showImages">
 
-  <div class="item item-body">
+  <div class="item item-body article-body">
   <h3 style="font-size: {{settingsData.fontTitle}}%">{{ article.title }}</h3>
   <p class="documentDescription" style="font-size: {{settingsData.fontDescription}}%" ng-if="settingsData.showDescription">{{ article.description }}</p>
   </div>
