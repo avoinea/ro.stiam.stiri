@@ -20,6 +20,7 @@ angular.module('ro.stiam.stiri.filters', [])
 
 .filter('roCards', function() {
   return function(input) {
+    return 'list inset';
     return input ? 'card' : '';
   }
 })

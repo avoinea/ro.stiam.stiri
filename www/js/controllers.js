@@ -97,4 +97,20 @@ angular.module('ro.stiam.stiri.controllers', [])
     return true;
   }
 
-});
+  $scope.doClick = function (evt) {
+    console.log(evt);
+  };
+
+  $scope.loadMore();
+
+
+
+})
+
+.controller('$ionicFlipbard', [
+  '$scope',
+  '$attrs',
+  '$parse',
+function($scope, $attrs, $parse) {
+
+}]);
