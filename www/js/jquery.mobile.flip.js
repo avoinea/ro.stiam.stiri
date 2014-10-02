@@ -993,8 +993,12 @@
   }
 
   Plugin.prototype._getClientMousePos = function(event) {
-    if (event.clientX === null && event.originalEvent) {
-      return {x: event.originalEvent.clientX, y: event.originalEvent.clientY};
+    if (!event.clientX && event.originalEvent) {
+      if(event.originalEvent.clientX) {
+          return {x: event.originalEvent.clientX, y: event.originalEvent.clientY};
+      }else{
+          return {x: event.originalEvent.gesture.center.pageX, y: event.originalEvent.gesture.center.pageY};
+      }
     } else {
       return {x: event.clientX, y: event.clientY};
     }
@@ -1353,7 +1357,9 @@
     click = 'click';
 
     if(angular){
-      mousemove = 'swipe';
+      mousedown = 'dragstart';
+      mouseup = 'dragend';
+      mousemove = 'drag';
     }
 
     var _this = this;
@@ -1391,17 +1397,14 @@
     }
 
     $(this.element).bind(mousedown, function(event) {
-      console.log('down');
       return _this.vmousedown(event);
     });
 
     $(this.element).bind(mousemove, function(event) {
-      console.log('move');
       return _this.vmousemove(event);
     });
 
     $(this.element).bind(mouseup, function(event) {
-      console.log('up');
       return _this.vmouseup(event);
     });
 

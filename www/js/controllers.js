@@ -82,7 +82,17 @@ angular.module('ro.stiam.stiri.controllers', [])
 
   $scope.loadMore = function(){
     return Query.next().then(function(resp){
-      $scope.articles = $scope.articles.concat(resp.items);
+      var count = 0
+      $(resp.items).each(function(idx, val){
+//          if(!val.thumbnail){
+//              return;
+//          }
+          count += 1;
+          if(count > 3) {
+              return;
+          }
+          $scope.articles.push(val);
+      });
       $scope.properties = resp.properties;
       $scope.$broadcast('scroll.infiniteScrollComplete');
     });
